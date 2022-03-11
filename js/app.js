@@ -21,14 +21,12 @@ const addToLiked = (id) => {
 };
 
 const reportPost = (id) => {
-  // bug-1
   reportedPostsId.push(id);
   const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
   showPosts(remainingPosts);
 };
 
 const displayContent = (text) => {
-  // bug-3
   return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
@@ -64,7 +62,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                  // bug-2
+                
                     <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
@@ -122,7 +120,7 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                      // bug-4
+                      
                           ${post.comments[0]?.user}
                       </a>
                       ${post.comments[0]?.text}
@@ -146,7 +144,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
-  // bug-6
+
   document.getElementById("liked").innerHTML = '';
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
